@@ -1,6 +1,5 @@
 import 'package:chapter02/page/counter-page.dart';
 import 'package:chapter02/page/route-base-page.dart';
-import 'package:chapter02/page/route-table-page.dart';
 import 'package:chapter02/page/route-value-page.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +33,7 @@ class AppPage extends StatelessWidget {
               child: new Text('基础路由实例'),
               onPressed: () => {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new RouterBasePage();
+                  return new RouteBasePage();
                 }))
               },
             ),
@@ -51,13 +50,9 @@ class AppPage extends StatelessWidget {
             ),
             RaisedButton(
               child: new Text('路由表实例'),
-              onPressed: () async {
-                // async ... await 异步，等待push()执行完毕（页面携带返回值跳转完毕），才print
-                var result = await Navigator.push(context,
-                    MaterialPageRoute(builder: (context) {
-                      return new RouteValuePage();
-                    }));
-                print('路由传值实例返回值: $result');
+              onPressed: () => {
+                // 打开路由时传递参数
+                Navigator.of(context).pushNamed('route_table_page', arguments: '111'),
               },
             ),
           ],

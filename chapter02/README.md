@@ -1,16 +1,66 @@
-# chapter02
+## Flutter 路由管理
 
-Chapter 02 Learning
+### 基础用法
 
-## Getting Started
+1. `MaterialPageRoute`
+    - `WidgetBuilder builder`: 回调函数，返回Widget用于构建页面具体内容
+    - `RouteSettings settings`: 路由的配置信息
+  
+2. `Navigator`:
+    - `Future push(BuildContext context, Route route)`: 路由入栈（返回页面关闭时携带的数据）
+    - `bool pop(BuildContext context, [ result ])`: 将栈顶路由出栈，`result`为携带的值
 
-This project is a starting point for a Flutter application.
+```dart
+// A -> B
+Navigator.push(context, MaterialPageRoute(builder: (context) {
+  return new NewPage();
+}))
 
-A few resources to get you started if this is your first Flutter project:
+// B -> A
+Navigator.pop(context, '我是返回值');
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### 命名路由
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```dart
+// 注册路由表
+MaterialApp(
+  initialRoute:"/", //名为"/"的路由作为应用的home(首页)
+  routes:{
+    "new_page":(context) => NewRoute(),
+    "/":(context) => MyHomePage(title: 'Flutter Demo Home Page'), //注册首页路由
+  } ,
+);
+
+// 通过路由名打开路由页 | A A->B
+Navigator.pushNamed(context, "new_page");
+
+// 通过路由名打开路由页 - 携参 | A A->B
+Navigator.of(context).pushNamed("new_page", arguments: "hi");
+
+// 获取携带的参数 | A
+var args=ModalRoute.of(context).settings.arguments;
+```
+
+### 路由生成钩子
+
+`MaterialApp`有一个`onGenerateRoute`属性，可以实现对 **命名路由** 的权限控制。
+
+- `onGenerateRoute`仅仅对**命名路由**有效
+- `onGenerateRoute`仅仅对**命名路由**中**为在路由表中注册**的路由有效
+- 对于已经在路由表中注册的路由，将直接调用`builder`函数生成路由组件
+
+```dart
+MaterialApp(
+  onGenerateRoute:(RouteSettings settings){
+      return MaterialPageRoute(builder: (context){
+           String routeName = settings.name;
+       // 如果访问的路由页需要登录，但当前未登录，则直接返回登录页路由，
+       // 引导用户登录；其它情况则正常打开路由。
+     }
+   );
+  }
+);
+```
+
+

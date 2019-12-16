@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // 基础路由
-class RouterBasePage extends StatelessWidget {
+class RouteBasePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
