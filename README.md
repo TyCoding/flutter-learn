@@ -12,7 +12,7 @@
 Todo List
 
 -   [x] [Chapter01 - - 初识Flutter](https://github.com/TyCoding/flutter-learn/tree/master/chapter01)
--   [x] [Chapter02 -- Flutter路由、路由传值、路由表](https://github.com/TyCoding/flutter-learn/tree/master/chapter02)
+-   [x] [Chapter02 -- Flutter路由、路由传值、路由表、资源管理](https://github.com/TyCoding/flutter-learn/tree/master/chapter02)
 
 
 

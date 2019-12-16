@@ -63,4 +63,100 @@ MaterialApp(
 );
 ```
 
+### 包管理
 
+> 和Maven、Gradle类似，Flutter也可以简单的通过配置文件管理Flutter项目所需的包。
+
+在Flutter中通过`pubspec.yaml`文件管理项目所需的各种包：
+
+```yaml
+# 应用名称
+name: flutter_in_action
+# 应用描述
+description: First Flutter application.
+
+# 应用或包的版本号
+version: 1.0.0+1
+
+# 依赖
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+
+# 开发环境依赖的工具包（而不是flutter应用本身依赖的包）
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# flutter相关的配置选项
+flutter:
+  uses-material-design: true
+```
+
+### Pub仓库
+
+[https://pub.dev/](https://pub.dev/)
+
+### 其他依赖方式
+
+1. 依赖本地包（例如本地一个包名为`pkg1`）
+
+```yaml
+dependencies:
+    pkg1:
+        path: ../../code/pkg1
+```
+
+2. 依赖Git中存储的包
+
+```yaml
+dependencies:
+  package1:
+    git:
+      url: git://github.com/flutter/packages.git
+      path: packages/package1
+```
+
+### 资源管理
+
+1. 指定`assets`（`assets`为Flutter App中资源部分，对应了应用的中某个路径下的文件）
+
+```yaml
+flutter:
+  assets:
+    - assets/images/
+    - assets/json/
+```
+
+2. 加载assets
+   - 使用`package:flutter/services.dart`包中静态`rootBundle`对象加载asset
+   - 使用`DefaultAssetBundle`对象加载
+ 
+```dart
+rootBundle.loadString('assets/json/user.json');
+
+DefaultAssetBundle.of(context).loadString(key)
+```
+
+3. 加载文本
+
+```dart
+rootBundle.loadString('assets/json/user.json');
+```
+ 
+4. 加载图片
+
+```dart
+Image.asset('assets/images/favicon.ico')
+
+new AssetImage('graphics/background.png')
+```
+
+5. 设置APP图标
+
+替换`/android/app/src/main/res`中不同dpi的图片即可
+
+6. 更新启动页
+
+修改`/android/app/src/main/res/drawable/launch_background.xml`，自定义启动页样式

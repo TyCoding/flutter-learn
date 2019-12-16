@@ -1,3 +1,4 @@
+import 'package:chapter02/page/assets-page.dart';
 import 'package:chapter02/page/counter-page.dart';
 import 'package:chapter02/page/route-base-page.dart';
 import 'package:chapter02/page/route-value-page.dart';
@@ -53,6 +54,14 @@ class AppPage extends StatelessWidget {
               onPressed: () => {
                 // 打开路由时传递参数
                 Navigator.of(context).pushNamed('route_table_page', arguments: '111'),
+              },
+            ),
+            RaisedButton(
+              child: new Text('静态资源管理实例'),
+              onPressed: () => {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return new AssetsPage();
+                }))
               },
             ),
           ],
