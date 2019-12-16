@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 
-/**
- * Column:
- *    MainAxisAlignment: 主轴对齐
- *    CrossAsisAlignment: 纵轴对齐
- *
- * Row:
- *    `textDirection`: 水平方向子组件的布局顺序，默认从左往右
- *    `mainAxisSize`: Row在主轴方向占用空间，默认等于Row的实际宽度，`MainAxisSize.min`则等于Row所有子组件的宽度
- *    `mainAxisAlignment`: 表示子组件在Row所占用的水平空间内的对齐方式（若Row宽度=其下所有子组件宽度则无效）
- *        `MainAxisAlignment.start`表示沿`textDirection`初始方向对齐
- *            `textDirection: TextDirection.ltr`: `MainAxisAlignment.start`表示从左对齐
- *            `textDirection: TextDirection.rtl`: `MainAxisAlignment.start`表示从右对齐
- *    `verticalDirection`: 标识Row纵轴对齐方向（默认从上到下）
- *    `crossAxisAlignment`: 组件在纵轴的对象方式，Row的高度等于最高子元素的高度
- */
+/// Column:
+///    MainAxisAlignment: 主轴对齐
+///    CrossAsisAlignment: 纵轴对齐
+///
+/// Row:
+///    `textDirection`: 水平方向子组件的布局顺序，默认从左往右
+///    `mainAxisSize`: Row在主轴方向占用空间，默认等于Row的实际宽度，`MainAxisSize.min`则等于Row所有子组件的宽度
+///    `mainAxisAlignment`: 表示子组件在Row所占用的水平空间内的对齐方式（若Row宽度=其下所有子组件宽度则无效）
+///        `MainAxisAlignment.start`表示沿`textDirection`初始方向对齐
+///            `textDirection: TextDirection.ltr`: `MainAxisAlignment.start`表示从左对齐
+///            `textDirection: TextDirection.rtl`: `MainAxisAlignment.start`表示从右对齐
+///    `verticalDirection`: 标识Row纵轴对齐方向（默认从上到下）
+///    `crossAxisAlignment`: 组件在纵轴的对象方式，Row的高度等于最高子元素的高度
 class RowPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
