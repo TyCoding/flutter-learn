@@ -1,9 +1,8 @@
-import 'package:chapter03/page/button_page.dart';
-import 'package:chapter03/page/checkbox_page.dart';
-import 'package:chapter03/page/form_page.dart';
-import 'package:chapter03/page/image_page.dart';
-import 'package:chapter03/page/progress_page.dart';
-import 'package:chapter03/page/text_page.dart';
+import 'package:chatper04/page/align_page.dart';
+import 'package:chatper04/page/row_page.dart';
+import 'package:chatper04/page/flex_page.dart';
+import 'package:chatper04/page/stack_page.dart';
+import 'package:chatper04/page/wrap_page.dart';
 import 'package:flutter/material.dart';
 
 class AppPage extends StatelessWidget {
@@ -13,7 +12,7 @@ class AppPage extends StatelessWidget {
     return new Scaffold(
       // 页面顶栏显示的名称
       appBar: new AppBar(
-        title: new Text('Flutter Chapter03 Learning'),
+        title: new Text('Flutter Chapter04 Learning'),
       ),
 
       // 页面body，Center组件用于将其子组件居中显示
@@ -24,50 +23,42 @@ class AppPage extends StatelessWidget {
         child: new ListView(
           children: <Widget>[
             RaisedButton(
-              child: new Text('文本及样式'),
+              child: new Text('线性布局：Column、Row'),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new TextPage();
+                  return new RowPage();
                 }));
               },
             ),
             RaisedButton(
-              child: new Text('按钮'),
+              child: new Text('弹性布局：Flex'),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new ButtonPage();
+                  return new FlexPage();
                 }));
               },
             ),
             RaisedButton(
-              child: new Text('图片及ICON'),
+              child: new Text('流式布局：Wrap、Flow'),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new ImagePage();
+                  return new WrapPage();
                 }));
               },
             ),
             RaisedButton(
-              child: new Text('单选框和复选框'),
+              child: new Text('层叠布局：Stack、Positioned'),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new CheckboxPage();
+                  return new StackPage();
                 }));
               },
             ),
             RaisedButton(
-              child: new Text('输入框和表单'),
+              child: new Text('对齐和相对定位：Align'),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new FormPage();
-                }));
-              },
-            ),
-            RaisedButton(
-              child: new Text('进度指示器'),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new ProgressPage();
+                  return new AlignPage();
                 }));
               },
             ),
