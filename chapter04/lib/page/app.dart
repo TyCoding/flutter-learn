@@ -1,8 +1,8 @@
-import 'package:chatper04/page/align_page.dart';
-import 'package:chatper04/page/row_page.dart';
-import 'package:chatper04/page/flex_page.dart';
-import 'package:chatper04/page/stack_page.dart';
-import 'package:chatper04/page/wrap_page.dart';
+import 'package:chapter04/page/align_page.dart';
+import 'package:chapter04/page/row_page.dart';
+import 'package:chapter04/page/flex_page.dart';
+import 'package:chapter04/page/stack_page.dart';
+import 'package:chapter04/page/wrap_page.dart';
 import 'package:flutter/material.dart';
 
 class AppPage extends StatelessWidget {

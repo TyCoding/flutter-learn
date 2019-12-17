@@ -1,4 +1,4 @@
-package tycoding.cn.chatper04
+package tycoding.cn.chapter04
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
